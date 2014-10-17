@@ -1,0 +1,4 @@
+SacredCinderBot
+===============
+
+Sacred geometry API
