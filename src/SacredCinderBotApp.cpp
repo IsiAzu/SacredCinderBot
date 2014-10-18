@@ -21,7 +21,7 @@ void SacredCinderBotApp::setup()
 {
     window = getWindowSize();
     std::cout << window << std::endl;
-    mStar = Star(window/2.0f, window, 100, window, 12, window);
+    mStar = Star( window/2.0f, 100, 8, window );
     mStar.addPoints();
 }
 
@@ -32,13 +32,21 @@ void SacredCinderBotApp::mouseDown( MouseEvent event )
 
 void SacredCinderBotApp::update()
 {
+    
 }
 
 void SacredCinderBotApp::draw()
 {
-    gl::pushMatrices();
+    //clear the screen
     gl::clear( Color( 0, 0, 0 ) );
+
+    
+    gl::pushMatrices();
     mStar.draw();
+    gl::popMatrices();
+    
+    gl::pushMatrices();
+    mStar.dm();
     gl::popMatrices();
 }
 

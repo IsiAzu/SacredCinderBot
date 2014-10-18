@@ -12,26 +12,28 @@
 #include <math.h>
 #include "cinder/gl/gl.h"
 #include "cinder/Vector.h"
+#include "cinder/Rand.h"
 
 
 
 class Star{
 public:
     Star();
-    Star( ci::vec2 Pos, ci::vec2 Center, float Rad, ci::vec2, float SideNumb, ci::vec2 Window);
+    Star( ci::vec2 Pos, float Rad, float SideNumb, ci::vec2 Window);
     
     
     void addPoints();
     void draw();
+    void dm();
     
     ci::vec2    mPos;
-    ci::vec2    mWinSize;
-    ci::vec2    mCenter;
     ci::vec2    mWindow;
+    
     
     float       mRad;
     float       mSideNumb;
     float       mTheta;
+    float       mRand;
     
     std::vector<ci::vec2> mPositions;
     

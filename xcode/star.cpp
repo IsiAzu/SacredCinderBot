@@ -20,15 +20,14 @@ Star::Star(){
     
 }
 
-Star::Star( ci::vec2 Pos, ci::vec2 Center, float Rad, ci::vec2 WinSize, float SideNumb, ci::vec2 Window ){
+Star::Star( ci::vec2 Pos, float Rad, float SideNumb, ci::vec2 Window ){
     
     mPos      = Pos;
     mRad      = Rad;
-    mWinSize  = WinSize;
     mSideNumb = SideNumb;
-    mCenter   = Center;
     mTheta    = -M_PI_2;
     mWindow   = Window;
+    mRand     = randInt(mSideNumb/3, mSideNumb*2);
     
 }
 
@@ -50,13 +49,26 @@ void Star::draw(){
     
         //Iterate over each point, color and
         //place circle at that point:
-    for (int i = 0; i < Star::mSideNumb; i++){
+    for (int i = 0; i < mSideNumb; i++){
         
         mPositions[i].x = mRad * cos(i * deltaTheta + mTheta);
         mPositions[i].y = mRad * sin(i * deltaTheta + mTheta);
-        gl::color( 1, 0, 0 );
-        gl::drawSolidCircle(mPositions[i], 2);
+        gl::color( 1, 1, 0 );
+        gl::drawStrokedCircle(mPositions[i], 100);
 
+    }
+}
+
+void Star::dm(){
+    for ( int i = 0; i < mSideNumb; i++){
+         float deltaTheta = (M_PI * 2.0) / mSideNumb;
+        gl::translate(mPositions[i].x, mPositions[i].y);
+        
+        mPositions[i]*(i * deltaTheta + mTheta);
+        gl::color( 1, 0, 0 );
+        
+        gl::drawStrokedCircle(mPositions[i], 5);
+        
     }
 }
 
