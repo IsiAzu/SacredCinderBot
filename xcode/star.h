@@ -24,14 +24,13 @@ public:
 class flOfLife : public sacGeom{
 public:
     
-    flOfLife();
     flOfLife( ci::vec2 Pos, float Rad, float SideNumb, ci::vec2 Window);
     
     
     void addPoints();
     void draw();
     
-    ci::vec2    mPos;
+//    ci::vec2    mPos;
     ci::vec2    mWindow;
     
     
@@ -41,5 +40,12 @@ public:
     float       mRand;
     
     std::vector<ci::vec2> mPositions;
+    
+    float mPos      = Pos;
+    float mRad      = Rad;
+    float mSideNumb = SideNumb;
+    mTheta    = -M_PI_2;
+    mWindow   = Window;
+    mRand     = randInt(mSideNumb/3, mSideNumb*2);
     
 };

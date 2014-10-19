@@ -15,7 +15,7 @@ public:
 	void draw() override;
     vec2 window;
     
-    flOfLife *mflower;
+    flOfLife mflower;
     
 };
 
@@ -24,8 +24,8 @@ void SacredCinderBotApp::setup()
     window = getWindowSize();
     std::cout << window << std::endl;
     
-    mflower = new flOfLife( (window/2.0f), 100, 8, window );
-    mflower->addPoints();
+    mflower = *new flOfLife( (window/2.0f), 100, 8, window );
+    mflower.addPoints();
 }
 
 void SacredCinderBotApp::mouseDown( MouseEvent event )
@@ -45,7 +45,7 @@ void SacredCinderBotApp::draw()
 
     
     gl::pushMatrices();
-    mflower->draw();
+    mflower.draw();
     gl::popMatrices();
 }
 
