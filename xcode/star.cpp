@@ -16,7 +16,22 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
+flOfLife::flOfLife()
+{
+    
+}
 
+flOfLife::flOfLife( ci::vec2 Pos, float Rad, float SideNumb, ci::vec2 Window)
+{
+    
+    mPos      = Pos;
+    mRad      = Rad;
+    mSideNumb = SideNumb;
+    mTheta    = -M_PI_2;
+    mWindow   = Window;
+    mRand     = randInt(mSideNumb/3, mSideNumb*2);
+    
+}
 
 
 void flOfLife::addPoints(){
