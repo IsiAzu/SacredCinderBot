@@ -8,21 +8,24 @@ using namespace ci::app;
 using namespace std;
 
 class SacredCinderBotApp : public AppNative {
-  public:
+public:
 	void setup() override;
 	void mouseDown( MouseEvent event ) override;
 	void update() override;
 	void draw() override;
     vec2 window;
-    Star mStar;
+    
+    flOfLife *mflower;
+    
 };
 
 void SacredCinderBotApp::setup()
 {
     window = getWindowSize();
     std::cout << window << std::endl;
-    mStar = Star( window/2.0f, 100, 8, window );
-    mStar.addPoints();
+    
+    mflower = new flOfLife( (window/2.0f), 100, 8, window );
+    mflower->addPoints();
 }
 
 void SacredCinderBotApp::mouseDown( MouseEvent event )
@@ -42,11 +45,7 @@ void SacredCinderBotApp::draw()
 
     
     gl::pushMatrices();
-    mStar.draw();
-    gl::popMatrices();
-    
-    gl::pushMatrices();
-    mStar.dm();
+    mflower->draw();
     gl::popMatrices();
 }
 

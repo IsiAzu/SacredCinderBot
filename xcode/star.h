@@ -14,17 +14,22 @@
 #include "cinder/Vector.h"
 #include "cinder/Rand.h"
 
-
-
-class Star{
+class sacGeom{
 public:
-    Star();
-    Star( ci::vec2 Pos, float Rad, float SideNumb, ci::vec2 Window);
+                              // Constructor
+    virtual void addPoints(); // init
+    virtual void draw();      // Construct a variant of the flower of life
+};
+
+class flOfLife : public sacGeom{
+public:
+    
+    flOfLife();
+    flOfLife( ci::vec2 Pos, float Rad, float SideNumb, ci::vec2 Window);
     
     
     void addPoints();
     void draw();
-    void dm();
     
     ci::vec2    mPos;
     ci::vec2    mWindow;
