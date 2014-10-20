@@ -24,7 +24,10 @@ public:
     
     
     void addPoints();
-    void draw();
+    void drawRound();
+    void drawSqua();
+    void drawTri();
+    void update();
     
     ci::vec2    mPos;
     ci::vec2    mWindow;
