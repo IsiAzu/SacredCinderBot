@@ -15,16 +15,19 @@
 #include "cinder/Rand.h"
 
 
-
-class Star{
+class flOfLife{
 public:
-    Star();
-    Star( ci::vec2 Pos, float Rad, float SideNumb, ci::vec2 Window);
+    
+    flOfLife();
+    
+    flOfLife( ci::vec2 Pos, float Rad, float SideNumb, ci::vec2 Window);
     
     
     void addPoints();
-    void draw();
-    void dm();
+    void drawRound();
+    void drawSqua();
+    void drawTri();
+    void update();
     
     ci::vec2    mPos;
     ci::vec2    mWindow;
